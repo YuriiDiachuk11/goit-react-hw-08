@@ -1,39 +1,42 @@
+import { Field, Form, Formik } from "formik";
+import s from "./Form.module.css";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
-import css from "./RegisterForm.module.css";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
-const RegistrationForm = () => {
+const RegisterForm = () => {
   const dispatch = useDispatch();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-      register({
-        name: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+  const navigate = useNavigate();
+  const handleSubmit = (values, options) => {
+    dispatch(register(values))
+      .unwrap()
+      .then((res) => {
+        toast(`Welcome ${res?.user?.name}`);
+        navigate("/contacts");
       })
-    );
-    form.reset();
+      .catch(() => {
+        toast.error("Sorry, missing");
+      });
+    options.resetForm();
   };
-
+  const initialValues = {
+    name: "",
+    email: "",
+    password: "",
+  };
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Username
-        <input type="text" name="name" />
-      </label>
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Register</button>
-    </form>
+    <div className={s.wrapper}>
+      <h2>Register</h2>
+      <Formik onSubmit={handleSubmit} initialValues={initialValues}>
+        <Form className={s.form}>
+          <Field name="name" placeholder="Enter name" />
+          <Field name="email" placeholder="Enter email" />
+          <Field name="password" type="password" placeholder="Enter pass" />
+          <button type="submit">Submit</button>
+        </Form>
+      </Formik>
+    </div>
   );
 };
-export default RegistrationForm;
+export default RegisterForm;
