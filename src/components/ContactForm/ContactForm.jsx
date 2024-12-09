@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 
 import { nanoid } from "@reduxjs/toolkit";
-import { addContact } from "../../redux/contactsOps";
+import { addContact } from "../../redux/contacts/operations";
 
 const ContactForm = () => {
   const dispatch = useDispatch();
