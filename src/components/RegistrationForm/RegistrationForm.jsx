@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from "formik";
-import s from "./Form.module.css";
+import s from "./RegistrationForm.module.css";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import { useNavigate } from "react-router-dom";

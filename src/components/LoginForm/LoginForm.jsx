@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from "formik";
-import s from "./Form.module.css";
+import s from "./LoginForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/auth/operations";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
@@ -22,7 +22,6 @@ const LoginForm = () => {
   }
   return (
     <div className={s.wrapper}>
-      <h2>Login</h2>
       <Formik onSubmit={handleSubmit} initialValues={initialValues}>
         <Form className={s.form}>
           <Field name="email" placeholder="Enter email" />

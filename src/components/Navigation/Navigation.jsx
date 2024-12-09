@@ -10,11 +10,10 @@ const Navigation = () => {
   const dispatch = useDispatch();
   return (
     <header className={s.header}>
-      <h3>Redux Toolkit</h3>
       {isLoggedIn && <div>{user.email}</div>}
       <ul>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/tasks">Tasks</NavLink>
+        <NavLink to="/contacts">Contacts</NavLink>
         {!isLoggedIn && (
           <>
             <NavLink to="/login">Login</NavLink>
