@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  gap: 20px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  font-weight: 700;
+}
+.name {
+  color: grey;
+}
+.number {
+  color: gray;
+}
+.button {
+  border: 1px solid black;
+  /* box-shadow: 0px 0px 4px 4px lavender; */
+}
