@@ -27,13 +27,40 @@ const RegistrationForm = () => {
   };
   return (
     <div className={s.wrapper}>
-      <h2>Register</h2>
+      <h2 className={s.title}>Create an Account</h2>
       <Formik onSubmit={handleSubmit} initialValues={initialValues}>
         <Form className={s.form}>
-          <Field name="name" placeholder="Enter name" />
-          <Field name="email" placeholder="Enter email" />
-          <Field name="password" type="password" placeholder="Enter pass" />
-          <button type="submit">Submit</button>
+          <label htmlFor="name" className={s.label}>
+            Name
+          </label>
+          <Field
+            className={s.input}
+            id="name"
+            name="name"
+            placeholder="Enter name"
+          />
+          <label htmlFor="email" className={s.label}>
+            Email
+          </label>
+          <Field
+            className={s.input}
+            id="email"
+            name="email"
+            placeholder="Enter email"
+          />
+          <label htmlFor="password" className={s.label}>
+            Password
+          </label>
+          <Field
+            id="password"
+            className={s.input}
+            name="password"
+            type="password"
+            placeholder="Enter pass"
+          />
+          <button className={s.button} type="submit">
+            Submit
+          </button>
         </Form>
       </Formik>
     </div>

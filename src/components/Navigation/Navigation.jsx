@@ -10,18 +10,31 @@ const Navigation = () => {
   const dispatch = useDispatch();
   return (
     <header className={s.header}>
-      {isLoggedIn && <div>{user.email}</div>}
-      <ul>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/contacts">Contacts</NavLink>
+      {isLoggedIn && <div className={s.userInfo}>{user.email}</div>}
+      <ul className={s.list}>
+        <span className={s.home}>
+          <NavLink className={s.item} to="/">
+            Home
+          </NavLink>
+          <NavLink className={s.item} to="/contacts">
+            Contacts
+          </NavLink>
+        </span>
+
         {!isLoggedIn && (
-          <>
-            <NavLink to="/login">Login</NavLink>
-            <NavLink to="/register">Register</NavLink>
-          </>
+          <div className={s.authBox}>
+            <NavLink className={s.item} to="/login">
+              Log In
+            </NavLink>
+            <NavLink className={s.item} to="/register">
+              Register
+            </NavLink>
+          </div>
         )}
         {isLoggedIn && (
-          <button onClick={() => dispatch(logout())}>Logout</button>
+          <button className={s.button} onClick={() => dispatch(logout())}>
+            Logout
+          </button>
         )}
       </ul>
     </header>

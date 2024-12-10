@@ -24,9 +24,28 @@ const LoginForm = () => {
     <div className={s.wrapper}>
       <Formik onSubmit={handleSubmit} initialValues={initialValues}>
         <Form className={s.form}>
-          <Field name="email" placeholder="Enter email" />
-          <Field name="password" type="password" placeholder="Enter pass" />
-          <button type="submit">Submit</button>
+          <label htmlFor="email" className={s.label}>
+            Email
+          </label>
+          <Field
+            className={s.input}
+            id="email"
+            name="email"
+            placeholder="Enter email"
+          />
+          <label htmlFor="password" className={s.label}>
+            Password
+          </label>
+          <Field
+            className={s.input}
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Enter password"
+          />
+          <button className={s.button} type="submit">
+            Submit
+          </button>
         </Form>
       </Formik>
     </div>
