@@ -5,7 +5,7 @@ import { register } from "../../redux/auth/operations";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
-const RegisterForm = () => {
+const RegistrationForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (values, options) => {
@@ -39,4 +39,4 @@ const RegisterForm = () => {
     </div>
   );
 };
-export default RegisterForm;
+export default RegistrationForm;

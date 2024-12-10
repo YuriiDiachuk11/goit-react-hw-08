@@ -5,7 +5,7 @@ import Layout from "./Layout/Layout";
 const Home = lazy(() => import("../pages/HomePage"));
 const ContactsPage = lazy(() => import("../pages/ContactsPage"));
 const Login = lazy(() => import("../pages/LoginPage"));
-const Registration = lazy(() => import("../pages/RegistrationPage"));
+const RegistrationPage = lazy(() => import("../pages/RegistrationPage"));
 
 function App() {
   return (
@@ -15,8 +15,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/contacts" element={<ContactsPage />} />
         </Route>
-        <Route path="/registration" element={<Registration />} />
+        <Route path="/register" element={<RegistrationPage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<div>404: Page Not Found</div>} />
       </Routes>
     </Suspense>
   );
