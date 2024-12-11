@@ -46,6 +46,8 @@
   border-radius: 4px;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .button:hover {
