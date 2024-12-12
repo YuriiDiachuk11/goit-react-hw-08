@@ -7,12 +7,33 @@ import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { store } from "./redux/filter/store";
 import { persistor } from "./redux/filter/store";
+import { Toaster } from "react-hot-toast";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <PersistGate loading={null} persistor={persistor}>
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+            toastOptions={{
+              className: "",
+              duration: 2000,
+              style: {
+                background: "#363636",
+                color: "#fff",
+              },
+
+              success: {
+                duration: 1000,
+                theme: {
+                  primary: "green",
+                  secondary: "black",
+                },
+              },
+            }}
+          />
           <App />
         </PersistGate>
       </BrowserRouter>
