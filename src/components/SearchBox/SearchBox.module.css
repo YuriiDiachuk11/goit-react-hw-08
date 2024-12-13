@@ -23,5 +23,13 @@
 .fieldBox {
   display: flex;
   align-items: center;
-  gap: 4px;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  left: 5px;
+  top: 7px;
+  color: #888;
+  pointer-events: none;
 }

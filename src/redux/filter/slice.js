@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   name: "",
+  isFocused: false,
 };
 
 const slice = createSlice({
@@ -11,8 +12,11 @@ const slice = createSlice({
     filterChange: (state, action) => {
       state.name = action.payload;
     },
+    searchFocus: (state, action) => {
+      state.isFocused = action.payload;
+    },
   },
 });
 
-export const { filterChange } = slice.actions;
+export const { filterChange, searchFocus } = slice.actions;
 export const filterReducer = slice.reducer;
