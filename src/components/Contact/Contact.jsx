@@ -1,9 +1,11 @@
 import s from "./Contact.module.css";
-import { IoMdContact } from "react-icons/io";
-import { BsFillTelephoneFill } from "react-icons/bs";
+import { IoIosContact } from "react-icons/io";
+import { BsTelephone } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { openModal } from "../../redux/modal/slice";
 import { editContact } from "../../redux/contacts/operations";
+import { IconButton } from "@mui/material";
+import { Delete, Edit } from "@mui/icons-material";
 
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();
@@ -22,20 +24,22 @@ const Contact = ({ name, number, id }) => {
     <li className={s.item}>
       <div className={s.info}>
         <span className={s.name}>
-          <IoMdContact className={s.icon} size="14" color="black" />
+          <IoIosContact className={s.icon} size="20" color="black" />
           {name}
         </span>
         <span className={s.number}>
-          <BsFillTelephoneFill className={s.icon} size="14" color="black" />
+          <BsTelephone className={s.icon} size="20" color="black" />
           {number}
         </span>
       </div>
-      <button className={s.button} type="button" onClick={handleEditClick}>
-        Edit
-      </button>
-      <button className={s.button} onClick={handleDeleteClick} type="button">
-        Delete
-      </button>
+      <div className={s.buttonBox}>
+        <IconButton edge="end" onClick={handleEditClick}>
+          <Edit />
+        </IconButton>
+        <IconButton edge="end" onClick={handleDeleteClick} color="error">
+          <Delete />
+        </IconButton>
+      </div>
     </li>
   );
 };

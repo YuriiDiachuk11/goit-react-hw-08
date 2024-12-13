@@ -3,10 +3,10 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  background-color: #b5b1b1;
+  background-color: #979ea2;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 200px;
+  width: 400px;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
@@ -22,26 +22,17 @@
   gap: 5px;
 }
 .name {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
-  color: #007bff;
+  color: #fff;
 }
 .number {
-  font-size: 14px;
-  color: rgb(93, 117, 57);
+  font-size: 20px;
+  color: #fff;
 }
-.button {
-  align-self: flex-end;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  background-color: #dc3545;
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.buttonBox {
+  display: flex;
 }
-
-.button:hover {
-  background-color: #c82333;
+.icon {
+  margin-right: 20px;
 }

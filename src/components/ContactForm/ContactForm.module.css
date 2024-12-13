@@ -6,10 +6,11 @@
   flex-direction: column;
   gap: 15px;
   padding: 20px;
-  background-color: #fff;
+  background-color: #6d7e89;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin-bottom: 20px;
+  width: 400px;
 }
 .input {
   padding: 10px;
@@ -20,24 +21,26 @@
   transition: box-shadow 0.3s ease-in-out;
 }
 .label {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 600;
-  color: #555;
+  color: #fff;
 }
 .button {
   padding: 10px 15px;
   border: none;
   border-radius: 8px;
-  background-color: #007bff;
+  background-color: #7239a7;
   color: white;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 150px;
+  margin: 0 auto;
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: #52750d;
   transform: scale(1.05);
 }
 

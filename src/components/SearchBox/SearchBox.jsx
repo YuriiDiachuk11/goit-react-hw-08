@@ -8,7 +8,7 @@ const SearchBox = () => {
   return (
     <div className={s.wrapper}>
       <label className={s.label} htmlFor="search">
-        Find contacts by name
+        Search contact
       </label>
       <input
         className={s.input}
