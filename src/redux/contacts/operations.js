@@ -40,3 +40,16 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
+export const editContact = createAsyncThunk(
+  "contacts/editContact",
+  async ({ id, name, number }, thunkAPI) => {
+    try {
+      const response = await goItAPI.patch(`/contacts/${id}`, { name, number });
+      toast.success("Contact updated successfully!");
+      return response.data;
+    } catch (error) {
+      toast.error("Failed to update contact");
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
