@@ -4,30 +4,62 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 }
 
 .modal {
-  background-color: black;
+  background-color: #fff;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: 90%;
   text-align: center;
-  width: 300px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  font-size: 1rem;
+  margin: 10px 0 5px;
+  color: #555;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input[type="tel"] {
+  background-color: #f9f9f9;
 }
 
 .buttonBox {
+  display: flex;
+  justify-content: space-between;
   margin-top: 20px;
 }
 
 button {
   padding: 10px 20px;
-  margin: 5px;
   border: none;
   border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .confirm {
@@ -35,7 +67,15 @@ button {
   color: white;
 }
 
+.confirm:hover {
+  background-color: #45a049;
+}
+
 .cancel {
   background-color: #f44336;
   color: white;
+}
+
+.cancel:hover {
+  background-color: #e53935;
 }

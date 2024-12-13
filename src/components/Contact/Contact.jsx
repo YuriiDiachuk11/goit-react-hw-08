@@ -2,8 +2,7 @@ import s from "./Contact.module.css";
 import { IoIosContact } from "react-icons/io";
 import { BsTelephone } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { openModal } from "../../redux/modal/slice";
-import { editContact } from "../../redux/contacts/operations";
+import { openEditModal, openModal } from "../../redux/modal/slice";
 import { IconButton } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
 
@@ -13,13 +12,8 @@ const Contact = ({ name, number, id }) => {
     dispatch(openModal(id));
   };
   const handleEditClick = () => {
-    const newName = prompt("Enter new name:", name);
-    const newNumber = prompt("Enter new number:", number);
-    if (newName && newNumber) {
-      dispatch(editContact({ id, name: newName, number: newNumber }));
-    }
+    dispatch(openEditModal({ id, name, number }));
   };
-
   return (
     <li className={s.item}>
       <div className={s.info}>
