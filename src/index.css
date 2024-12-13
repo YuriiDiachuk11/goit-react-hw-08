@@ -13,3 +13,7 @@ body {
   padding: 20px;
   justify-content: space-around;
 }
+.title {
+  text-align: center;
+  font-size: 36px;
+}
