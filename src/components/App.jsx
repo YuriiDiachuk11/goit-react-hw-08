@@ -6,6 +6,7 @@ import { selectIsRefreshing } from "../redux/auth/selectors";
 import RestrictedRoute from "./RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Layout from "./Layout/Layout";
+import Modal from "./Modal/Modal";
 
 const HomePage = lazy(() => import("../pages/HomePage"));
 const ContactsPage = lazy(() => import("../pages/ContactsPage"));
@@ -24,6 +25,7 @@ function App() {
     <p>Refreshing user...</p>
   ) : (
     <Suspense fallback={<div>Loading...</div>}>
+      <Modal />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

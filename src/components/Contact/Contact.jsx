@@ -2,10 +2,14 @@ import s from "./Contact.module.css";
 import { IoMdContact } from "react-icons/io";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contacts/operations";
+
+import { openModal } from "../../redux/modal/slice";
 
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();
+  const handleDeleteClick = () => {
+    dispatch(openModal(id));
+  };
 
   return (
     <li className={s.item}>
@@ -19,11 +23,7 @@ const Contact = ({ name, number, id }) => {
           {number}
         </span>
       </div>
-      <button
-        className={s.button}
-        onClick={() => dispatch(deleteContact(id))}
-        type="button"
-      >
+      <button className={s.button} onClick={handleDeleteClick} type="button">
         Delete
       </button>
     </li>

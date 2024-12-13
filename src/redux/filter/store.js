@@ -14,6 +14,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { filterReducer } from "./slice";
+import { modalReducer } from "../modal/slice";
 
 const authPersistConfig = {
   key: "auth",
@@ -38,6 +39,7 @@ export const store = configureStore({
     auth: persistedAuthReducer,
     contacts: persistedContactsReducer,
     filter: filterReducer,
+    modal: modalReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
