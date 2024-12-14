@@ -1,0 +1,7 @@
+.contactsBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  justify-content: space-around;
+}

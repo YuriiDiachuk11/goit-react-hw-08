@@ -25,7 +25,7 @@ const Navigation = () => {
         {!isLoggedIn && (
           <div className={s.authBox}>
             <NavLink className={s.item} to="/login">
-              Log In
+              LogIn
             </NavLink>
             <NavLink className={s.item} to="/register">
               Register

@@ -4,6 +4,7 @@ import ContactList from "../components/ContactList/ContactList";
 import { selectIsLoggedIn } from "../redux/auth/selectors";
 import { useEffect } from "react";
 import { fetchContacts } from "../redux/contacts/operations";
+import s from "./ContactsPage.module.css";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -16,11 +17,11 @@ const ContactsPage = () => {
   }, [dispatch, isLoggedIn]);
   return (
     <div>
-      <div className="contactsPageBox">
-        <div className="contactFormBox">
+      <div className={s.contactsBox}>
+        <div>
           <ContactForm />
         </div>
-        <div className="contactListBox">
+        <div>
           <ContactList />
         </div>
       </div>
