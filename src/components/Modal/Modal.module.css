@@ -36,11 +36,15 @@ label {
 
 input {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
+  padding: 12px;
+  margin-bottom: 20px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
 }
 
 input[type="tel"] {
@@ -49,7 +53,8 @@ input[type="tel"] {
 
 .buttonBox {
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
+  justify-content: center;
   margin-top: 20px;
 }
 
@@ -57,7 +62,7 @@ button {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
