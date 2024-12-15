@@ -27,18 +27,27 @@ const contactsPersistConfig = {
   version: 1,
   storage,
 };
+const filterPersistConfig = {
+  key: "filter",
+  version: 1,
+  storage,
+};
 
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 const persistedContactsReducer = persistReducer(
   contactsPersistConfig,
   contactsReducer
 );
+const persistedFilterReducer = persistReducer(
+  filterPersistConfig,
+  filterReducer
+);
 
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     contacts: persistedContactsReducer,
-    filter: filterReducer,
+    filter: persistedFilterReducer,
     modal: modalReducer,
   },
   middleware: (getDefaultMiddleware) =>
