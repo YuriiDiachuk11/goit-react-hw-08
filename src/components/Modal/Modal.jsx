@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import s from "./Modal.module.css";
-import { closeModal, updateContactToEdit } from "../../redux/modal/slice";
+
 import { deleteContact, editContact } from "../../redux/contacts/operations";
+import { closeModal, updateContactToEdit } from "../../redux/contacts/slice";
 
 const Modal = () => {
   const dispatch = useDispatch();
-  const { IsOpen, contactToDelete, contactToEdit } = useSelector(
-    (state) => state.modal
+  const { isOpen, contactToDelete, contactToEdit } = useSelector(
+    (state) => state.contacts.modal
   );
 
   const handleConfirmDelete = () => {
@@ -45,7 +46,7 @@ const Modal = () => {
     dispatch(updateContactToEdit({ [name]: value }));
   };
 
-  if (!IsOpen) return null;
+  if (!isOpen) return null;
   return (
     <div className={s.overlay}>
       <div className={s.modal}>

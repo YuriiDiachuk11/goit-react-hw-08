@@ -2,9 +2,10 @@ import s from "./Contact.module.css";
 import { IoIosContact } from "react-icons/io";
 import { BsTelephone } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { openEditModal, openModal } from "../../redux/modal/slice";
+
 import { IconButton } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
+import { openEditModal, openModal } from "../../redux/contacts/slice";
 
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();

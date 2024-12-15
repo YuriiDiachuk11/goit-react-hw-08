@@ -11,12 +11,41 @@ const initialState = {
   items: [],
   loading: false,
   error: false,
+  modal: {
+    isOpen: false,
+    contactToDelete: null,
+    contactToEdit: null,
+  },
 };
 
 const slice = createSlice({
   name: "contacts",
   initialState,
-
+  reducers: {
+    openModal: (state, action) => {
+      state.modal.isOpen = true;
+      state.modal.contactToDelete = action.payload;
+      state.modal.contactToEdit = null;
+    },
+    closeModal: (state) => {
+      state.modal.isOpen = false;
+      state.modal.contactToDelete = null;
+      state.modal.contactToEdit = null;
+    },
+    openEditModal: (state, action) => {
+      state.modal.isOpen = true;
+      state.modal.contactToEdit = action.payload;
+      state.modal.contactToDelete = null;
+    },
+    updateContactToEdit: (state, action) => {
+      if (state.modal.contactToEdit) {
+        state.modal.contactToEdit = {
+          ...state.modal.contactToEdit,
+          ...action.payload,
+        };
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchContacts.fulfilled, (state, action) => {
@@ -73,5 +102,8 @@ const slice = createSlice({
       );
   },
 });
+
+export const { openModal, closeModal, openEditModal, updateContactToEdit } =
+  slice.actions;
 
 export const contactsReducer = slice.reducer;
