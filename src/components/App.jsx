@@ -7,6 +7,7 @@ import RestrictedRoute from "./RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Layout from "./Layout/Layout";
 import Modal from "./Modal/Modal";
+import Loader from "./Loader/Loader";
 
 const HomePage = lazy(() => import("../pages/HomePage"));
 const ContactsPage = lazy(() => import("../pages/ContactsPage"));
@@ -22,9 +23,9 @@ function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <p>Refreshing user...</p>
+    <Loader />
   ) : (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader />}>
       <Modal />
       <Routes>
         <Route path="/" element={<Layout />}>

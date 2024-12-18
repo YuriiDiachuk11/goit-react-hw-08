@@ -5,6 +5,7 @@ import {
   selectFilteredContacts,
   selectLoading,
 } from "../../redux/contacts/selectors";
+import Loader from "../Loader/Loader";
 
 const ContactList = () => {
   const Loading = useSelector(selectLoading);
@@ -12,7 +13,7 @@ const ContactList = () => {
 
   return (
     <ul className={s.list}>
-      {Loading && <h2>Loading...</h2>}
+      {Loading && <Loader />}
       {filteredContacts.map((contact) => (
         <Contact
           key={contact.id}
