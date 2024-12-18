@@ -9,10 +9,16 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  showPassword: false,
 };
 const authSlice = createSlice({
   name: "auth",
   initialState,
+  reducers: {
+    togglePasswordVisibility: (state) => {
+      state.showPassword = !state.showPassword;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, (state, action) => {
@@ -42,3 +48,4 @@ const authSlice = createSlice({
   },
 });
 export const authReducer = authSlice.reducer;
+export const { togglePasswordVisibility } = authSlice.actions;

@@ -65,3 +65,21 @@
   color: #9d1b12;
   font-size: 24px;
 }
+.passwordBox {
+  position: relative;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  color: #3949ab;
+  transition: all 0.3s ease;
+}
+
+.eyeIcon:hover {
+  color: #1a237e;
+}

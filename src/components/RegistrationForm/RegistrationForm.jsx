@@ -1,10 +1,13 @@
 import { Field, Form, Formik } from "formik";
 import s from "./RegistrationForm.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import * as Yup from "yup";
+import { togglePasswordVisibility } from "../../redux/auth/slice";
+import { FaRegEye } from "react-icons/fa";
+import { PiEyeClosedDuotone } from "react-icons/pi";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Name is empty"),
@@ -20,6 +23,7 @@ const validationSchema = Yup.object({
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const showPassword = useSelector((state) => state.auth.showPassword);
 
   const handleSubmit = (values, options) => {
     dispatch(register(values))
@@ -38,6 +42,9 @@ const RegistrationForm = () => {
     name: "",
     email: "",
     password: "",
+  };
+  const handlePasswordVisibilityToggle = () => {
+    dispatch(togglePasswordVisibility());
   };
 
   return (
@@ -79,13 +86,25 @@ const RegistrationForm = () => {
             <label htmlFor="password" className={s.label}>
               Password
             </label>
-            <Field
-              id="password"
-              className={s.input}
-              name="password"
-              type="password"
-              placeholder="Enter password"
-            />
+            <div className={s.passwordBox}>
+              <Field
+                id="password"
+                className={s.input}
+                name="password"
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter password"
+              />
+              <span
+                className={s.eyeIcon}
+                onClick={handlePasswordVisibilityToggle}
+              >
+                {showPassword ? (
+                  <FaRegEye size={25} />
+                ) : (
+                  <PiEyeClosedDuotone size={25} />
+                )}
+              </span>
+            </div>
             {errors.password && touched.password && (
               <div className={s.error}>{errors.password}</div>
             )}
