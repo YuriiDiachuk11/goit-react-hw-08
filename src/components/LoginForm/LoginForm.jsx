@@ -5,24 +5,27 @@ import { login } from "../../redux/auth/operations";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import { Navigate } from "react-router-dom";
 import * as Yup from "yup";
-import { togglePasswordVisibility } from "../../redux/auth/slice";
+import { clearError, togglePasswordVisibility } from "../../redux/auth/slice";
 import { PiEyeClosedDuotone } from "react-icons/pi";
 import { FaRegEye } from "react-icons/fa";
+import { useEffect } from "react";
 
 const validationSchema = Yup.object({
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
+  email: Yup.string().email("Invalid email address").required("Enter email"),
   password: Yup.string()
     .min(6)
     .matches(/[0-9]/, "Password must include a number")
-    .required("Password is required"),
+    .required(" Enter password "),
 });
 
 const LoginForm = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch();
   const showPassword = useSelector((state) => state.auth.showPassword);
+  const error = useSelector((state) => state.auth.error);
+  useEffect(() => {
+    dispatch(clearError());
+  }, [dispatch]);
 
   const handleSubmit = (values, options) => {
     dispatch(login(values));
@@ -88,6 +91,7 @@ const LoginForm = () => {
             {errors.password && touched.password && (
               <div className={s.error}>{errors.password}</div>
             )}
+            {error && <div className={s.error}>{error}</div>}
 
             <button className={s.button} type="submit">
               Submit

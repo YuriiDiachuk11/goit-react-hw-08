@@ -27,8 +27,7 @@
   text-decoration: none;
 }
 .item:focus,
-.item:active,
-:hover {
+.item:active {
   color: #52750d;
 }
 .home {
